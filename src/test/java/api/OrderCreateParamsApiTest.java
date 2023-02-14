@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.containsString;
 @RunWith(Parameterized.class)
 public class OrderCreateParamsApiTest {
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1} {2} {3}")
     public static Object[][] data() {
         return new Object[][]{
                 {"Вася", "Петров", "Рябиновая 55", "Сокол", "79182234455", 3, "01.04.2023", "Привет привет", new String[]{"black"}},
@@ -47,8 +47,7 @@ public class OrderCreateParamsApiTest {
     }
 
     @Test
-    public void createOrderTest(){
-
+    public void createOrderTest() {
         ApiOrder apiOrder = new ApiOrder();
         Order order = new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, colour);
 
@@ -56,7 +55,7 @@ public class OrderCreateParamsApiTest {
         ValidatableResponse responseCreate = apiOrder.createOrder(order);
         String actualCreateBody = responseCreate.extract().body().asPrettyString();
 
-        assertThat(actualCreateBody, containsString("\"track\": "));
+        assertThat("\"Error: Что-то пошло не так. Тело ответа не соответствует ожидаемому\"", actualCreateBody, containsString("\"track\": "));
     }
 
 }
