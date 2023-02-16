@@ -14,16 +14,6 @@ import static org.hamcrest.Matchers.containsString;
 @RunWith(Parameterized.class)
 public class OrderCreateParamsApiTest {
 
-    @Parameterized.Parameters(name = "Тестовые данные: {0} {1} {2} {3}")
-    public static Object[][] data() {
-        return new Object[][]{
-                {"Вася", "Петров", "Рябиновая 55", "Сокол", "79182234455", 3, "01.04.2023", "Привет привет", new String[]{"black"}},
-                {"Петя", "Anreev", "Новозаводская 14", "Восстания", "79223339910", 1, "07.28.2023", "Привет poka", new String[]{"grey"}},
-                {"Андрей", "Сидоров", "Рябиновая 55", "Ярославская", "79182234455", 5, "03.04.2023", "Privet Privet", new String[]{"black", "grey"}},
-                {"Аркадий", "Савинов", "Новозаводская 99", "Китай город", "7918223432", 6, "09.04.2024", "Привет пока", new String[]{""}}
-        };
-    }
-
     private String firstName;
     private String lastName;
     private String address;
@@ -45,6 +35,17 @@ public class OrderCreateParamsApiTest {
         this.comment = comment;
         this.colour = colour;
     }
+
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1} {2} {3}")
+    public static Object[][] data() {
+        return new Object[][]{
+                {"Вася", "Петров", "Рябиновая 55", "Сокол", "79182234455", 3, "01.04.2023", "Привет привет", new String[]{"black"}},
+                {"Петя", "Anreev", "Новозаводская 14", "Восстания", "79223339910", 1, "07.28.2023", "Привет poka", new String[]{"grey"}},
+                {"Андрей", "Сидоров", "Рябиновая 55", "Ярославская", "79182234455", 5, "03.04.2023", "Privet Privet", new String[]{"black", "grey"}},
+                {"Аркадий", "Савинов", "Новозаводская 99", "Китай город", "7918223432", 6, "09.04.2024", "Привет пока", new String[]{""}}
+        };
+    }
+
 
     @Test
     public void createOrderTest() {

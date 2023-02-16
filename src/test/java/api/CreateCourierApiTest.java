@@ -14,17 +14,14 @@ import static org.junit.Assert.assertEquals;
 
 public class CreateCourierApiTest {
 
-    Gson gson = new Gson();
-    ApiCourier apiCourier = new ApiCourier();
-
+    private Gson gson = new Gson();
+    private ApiCourier apiCourier = new ApiCourier();
     //Курьер с полным набором входных данных
-    Courier courier = new Courier("ActualTestLogin", "ActualTestPassword", "ActualTestFirstName");
-
+    private Courier courier = new Courier("ActualTestLogin", "ActualTestPassword", "ActualTestFirstName");
     //Курьер без логина
-    Courier courierWithoutLogin = new Courier("", "ProverkaProverkaPassword", "ProverkaProverkaFirstName");
-
+    private Courier courierWithoutLogin = new Courier("", "ProverkaProverkaPassword", "ProverkaProverkaFirstName");
     //Курьер без пароля
-    Courier courierWithoutPassword = new Courier("ProverkaProverkaLogin", "", "ProverkaProverkaFirstName");
+    private Courier courierWithoutPassword = new Courier("ProverkaProverkaLogin", "", "ProverkaProverkaFirstName");
 
     //Удаление созданного курьера
     @After

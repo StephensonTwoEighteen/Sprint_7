@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 
 public class LoginCourierApiTest {
 
-    Gson gson = new Gson();
-    ApiCourier apiCourier = new ApiCourier();
+    private Gson gson = new Gson();
+    private ApiCourier apiCourier = new ApiCourier();
 
     //Существующий курьер
-    Courier courier = new Courier("ActualTestLogin", "ActualTestPassword", "ActualTestFirstName");
+    private Courier courier = new Courier("ActualTestLogin", "ActualTestPassword", "ActualTestFirstName");
 
     @After
     public void deleteCourier() {
